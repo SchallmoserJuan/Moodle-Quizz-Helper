@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Moodle Study Helper",
+  "version": "1.0.0",
+  "description": "Asistente de estudio para quizzes de Moodle usando Gemini API",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "resolve-question": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "Command+Shift+X"
+      },
+      "description": "Resolver pregunta actual de Moodle"
+    }
+  },
+  "options_page": "options.html"
+}

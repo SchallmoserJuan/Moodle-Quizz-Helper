@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opciones — Moodle Study Helper</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --danger: #ef4444;
+      --radius: 12px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      background: var(--card);
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: -0.3px;
+    }
+
+    p.desc {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--muted);
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      background: #0f172a;
+      color: var(--text);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input[type="text"]:focus, input[type="password"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      background: #0f172a;
+      color: var(--text);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+    }
+
+    select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      color: #fff;
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    button:hover {
+      background: var(--accent-hover);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .status {
+      margin-top: 14px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      display: none;
+    }
+
+    .status.success {
+      display: block;
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ade80;
+    }
+
+    .status.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.12);
+      color: #f87171;
+    }
+
+    .provider-section {
+      display: none;
+    }
+
+    .provider-section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Opciones de Moodle Study Helper</h1>
+    <p class="desc">Configurá el proveedor de IA y tu API Key.</p>
+
+    <div class="field">
+      <label for="provider">Proveedor de IA</label>
+      <select id="provider">
+        <option value="gemini" selected>Google Gemini</option>
+        <option value="groq">Groq (muy rápido, modelos open source)</option>
+        <option value="openai-compatible">OpenAI-Compatible (Custom) — GPT-4, Claude, DeepSeek, etc.</option>
+      </select>
+      <div class="hint">Gemini es el default. Groq es ultra-rápido. "OpenAI-Compatible" permite usar cualquier API con formato OpenAI (ChatGPT, Claude vía OpenRouter, DeepSeek, Perplexity, etc.).</div>
+    </div>
+
+    <!-- Sección Gemini -->
+    <div id="gemini-section" class="provider-section active">
+      <div class="field">
+        <label for="geminiApiKey">Gemini API Key</label>
+        <input type="password" id="geminiApiKey" placeholder="Pega tu API Key de Gemini" autocomplete="off" />
+        <div class="hint">Conseguí tu key en <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: var(--accent);">Google AI Studio</a></div>
+      </div>
+
+      <div class="field">
+        <label for="geminiModel">Modelo Gemini</label>
+        <select id="geminiModel">
+          <option value="gemini-2.5-flash" selected>gemini-2.5-flash</option>
+          <option value="gemini-2.5-pro">gemini-2.5-pro</option>
+          <option value="gemini-2.0-flash">gemini-2.0-flash</option>
+          <option value="gemini-2.0-flash-lite">gemini-2.0-flash-lite</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Sección Groq -->
+    <div id="groq-section" class="provider-section">
+      <div class="field">
+        <label for="groqApiKey">Groq API Key</label>
+        <input type="password" id="groqApiKey" placeholder="Pega tu API Key de Groq" autocomplete="off" />
+        <div class="hint">Conseguí tu key en <a href="https://console.groq.com/keys" target="_blank" style="color: var(--accent);">Groq Console</a></div>
+      </div>
+
+      <div class="field">
+        <label for="groqModel">Modelo Groq</label>
+        <select id="groqModel">
+          <optgroup label="Recomendados para quizzes académicos">
+            <option value="openai/gpt-oss-120b" selected>gpt-oss-120b (más preciso, con reasoning)</option>
+            <option value="llama-3.3-70b-versatile">llama-3.3-70b-versatile (buen balance)</option>
+            <option value="meta-llama/llama-4-scout-17b-16e-instruct">llama-4-scout (muy preciso, preview)</option>
+          </optgroup>
+          <optgroup label="Muy rápidos, menos precisos">
+            <option value="llama-3.1-8b-instant">llama-3.1-8b-instant (560 t/s, solo lo básico)</option>
+            <option value="openai/gpt-oss-20b">gpt-oss-20b (1000 t/s, muy veloz)</option>
+          </optgroup>
+          <optgroup label="Otros">
+            <option value="qwen/qwen3-32b">qwen3-32b (preview)</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+
+    <!-- Sección OpenAI-Compatible -->
+    <div id="openai-compatible-section" class="provider-section">
+      <div class="field">
+        <label for="customApiKey">API Key</label>
+        <input type="password" id="customApiKey" placeholder="sk-..." autocomplete="off" />
+        <div class="hint">Tu API Key del servicio que elijas.</div>
+      </div>
+
+      <div class="field">
+        <label for="customBaseUrl">Base URL</label>
+        <input type="text" id="customBaseUrl" placeholder="https://api.openai.com/v1" autocomplete="off" />
+        <div class="hint">URL base de la API. Ejemplos:<br>
+        • OpenAI: <code>https://api.openai.com/v1</code><br>
+        • OpenRouter: <code>https://openrouter.ai/api/v1</code><br>
+        • DeepSeek: <code>https://api.deepseek.com/v1</code><br>
+        • Local/Ollama: <code>http://localhost:11434/v1</code></div>
+      </div>
+
+      <div class="field">
+        <label for="customModel">Nombre del modelo</label>
+        <input type="text" id="customModel" placeholder="gpt-4o" autocomplete="off" />
+        <div class="hint">Nombre exacto del modelo. Ejemplos: <code>gpt-4o</code>, <code>claude-3-5-sonnet-20241022</code>, <code>deepseek-chat</code>, <code>google/gemini-2.5-flash</code></div>
+      </div>
+    </div>
+
+    <button id="save">Guardar configuración</button>
+    <div id="status" class="status"></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

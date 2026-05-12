@@ -1,0 +1,192 @@
+/* ===================================================================
+   Moodle Study Helper — styles.css
+   Overlay flotante moderno, minimalista, con soporte dark mode.
+   =================================================================== */
+
+/* ---------- Variables ---------- */
+:root {
+  --moodle-bg: #ffffff;
+  --moodle-fg: #1a1a2e;
+  --moodle-border: rgba(0, 0, 0, 0.08);
+  --moodle-accent: #4f46e5;
+  --moodle-accent-hover: #4338ca;
+  --moodle-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  --moodle-header-bg: #f8fafc;
+  --moodle-radius: 14px;
+  --moodle-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --moodle-bg: #1e1e2f;
+    --moodle-fg: #e2e8f0;
+    --moodle-border: rgba(255, 255, 255, 0.08);
+    --moodle-accent: #818cf8;
+    --moodle-accent-hover: #6366f1;
+    --moodle-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+    --moodle-header-bg: #16162a;
+  }
+}
+
+/* ---------- Overlay principal ---------- */
+#moodle-helper-overlay {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 420px !important;
+  max-width: calc(100vw - 40px) !important;
+  max-height: 80vh !important;
+  z-index: 2147483647 !important; /* Encima de casi todo */
+  font-family: var(--moodle-font) !important;
+  color: var(--moodle-fg) !important;
+  background: var(--moodle-bg) !important;
+  border: 1px solid var(--moodle-border) !important;
+  border-radius: var(--moodle-radius) !important;
+  box-shadow: var(--moodle-shadow) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
+  line-height: 1.5 !important;
+}
+
+/* Estado oculto (sin animación de layout) */
+#moodle-helper-overlay.moodle-helper-hidden {
+  opacity: 0 !important;
+  transform: translateY(-10px) scale(0.98) !important;
+  pointer-events: none !important;
+}
+
+/* Estado visible con fade-in */
+#moodle-helper-overlay.moodle-helper-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+/* ---------- Header ---------- */
+#moodle-helper-overlay .moodle-helper-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 14px 18px !important;
+  background: var(--moodle-header-bg) !important;
+  border-bottom: 1px solid var(--moodle-border) !important;
+  cursor: move !important;
+  user-select: none !important;
+  border-top-left-radius: var(--moodle-radius) !important;
+  border-top-right-radius: var(--moodle-radius) !important;
+  flex-shrink: 0 !important;
+}
+
+#moodle-helper-overlay .moodle-helper-title {
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  letter-spacing: -0.2px !important;
+}
+
+#moodle-helper-overlay .moodle-helper-actions {
+  display: flex !important;
+  gap: 6px !important;
+}
+
+/* ---------- Botones ---------- */
+#moodle-helper-overlay .moodle-helper-btn {
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 6px 10px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  color: #fff !important;
+  background: var(--moodle-accent) !important;
+  transition: background 0.2s ease, transform 0.15s ease !important;
+  outline: none !important;
+}
+
+#moodle-helper-overlay .moodle-helper-btn:hover {
+  background: var(--moodle-accent-hover) !important;
+}
+
+#moodle-helper-overlay .moodle-helper-btn:active {
+  transform: scale(0.96) !important;
+}
+
+/* ---------- Cuerpo ---------- */
+#moodle-helper-overlay .moodle-helper-body {
+  padding: 16px 18px !important;
+  overflow-y: auto !important;
+  flex: 1 1 auto !important;
+  word-wrap: break-word !important;
+}
+
+/* Scrollbar minimalista */
+#moodle-helper-overlay .moodle-helper-body::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+#moodle-helper-overlay .moodle-helper-body::-webkit-scrollbar-thumb {
+  background: var(--moodle-border) !important;
+  border-radius: 3px !important;
+}
+
+/* ---------- Loading ---------- */
+#moodle-helper-overlay .moodle-helper-loading {
+  display: none; /* flex cuando está activo */
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  padding: 30px 10px !important;
+  color: var(--moodle-fg) !important;
+  font-size: 14px !important;
+  opacity: 0.9 !important;
+}
+
+/* Spinner */
+#moodle-helper-overlay .moodle-helper-spinner {
+  width: 32px !important;
+  height: 32px !important;
+  border: 3px solid var(--moodle-border) !important;
+  border-top-color: var(--moodle-accent) !important;
+  border-radius: 50% !important;
+  animation: moodle-spin 0.8s linear infinite !important;
+}
+
+@keyframes moodle-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Contenido / Markdown ---------- */
+#moodle-helper-overlay .moodle-helper-content {
+  font-size: 14px !important;
+  line-height: 1.65 !important;
+}
+
+#moodle-helper-overlay .moodle-helper-content strong {
+  font-weight: 700 !important;
+  color: var(--moodle-accent) !important;
+}
+
+#moodle-helper-overlay .moodle-helper-content em {
+  font-style: italic !important;
+  opacity: 0.9 !important;
+}
+
+#moodle-helper-overlay .moodle-helper-content ul {
+  margin: 8px 0 !important;
+  padding-left: 20px !important;
+}
+
+#moodle-helper-overlay .moodle-helper-content li {
+  margin-bottom: 4px !important;
+}
+
+#moodle-helper-overlay .moodle-helper-content br {
+  display: block !important;
+  content: "" !important;
+  margin-bottom: 6px !important;
+}
