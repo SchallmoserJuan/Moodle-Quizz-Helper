@@ -173,6 +173,32 @@ Apretá `Ctrl + Shift + X` (o `Cmd + Shift + X` en Mac) para resolver la pregunt
 
 ---
 
+## Aviso importante (Disclaimer)
+
+### Precisión de las respuestas
+La **precisión de las respuestas varía significativamente según el modelo de IA** que elijas:
+- Modelos más grandes y avanzados (como `gpt-4o`, `claude-3-5-sonnet`, `gemini-2.5-pro`) suelen ser más precisos.
+- Modelos más pequeños o rápidos pueden cometer errores, especialmente en materias técnicas o jurídicas.
+- **Ningún modelo tiene 100% de precisión.** Siempre verificá las respuestas con tus materiales de estudio.
+
+### Sin garantía de validez
+- Este proyecto **no se hace cargo de la validez, exactitud o corrección** de ninguna respuesta generada.
+- Las respuestas son generadas por modelos de IA de terceros (Google, Groq, OpenAI, etc.) sobre los cuales no tenemos control.
+- **No uses las respuestas como única fuente de verdad** para exámenes, trabajos prácticos o decisiones académicas importantes.
+
+### Uso educativo
+- Esta herramienta está diseñada como **auxiliar de estudio**, no como método para copiar o hacer trampa.
+- El objetivo es ayudarte a **entender el material**, no reemplazar el estudio.
+- Cumplí siempre con las políticas de integridad académica de tu institución.
+
+### Responsabilidad
+Los autores y contribuyentes de este proyecto **no son responsables** por:
+- Respuestas incorrectas que resulten en notas bajas o reprobación.
+- Sanciones disciplinarias por uso indebido en exámenes o evaluaciones.
+- Cualquier otro daño directo o indirecto derivado del uso de esta extensión.
+
+---
+
 ## Licencia
 
-Uso personal/educativo. Modificá lo que necesites.
+[MIT License](LICENSE) — Uso personal/educativo. Modificá lo que necesites.
