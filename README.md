@@ -1,6 +1,8 @@
-# Moodle Quizz Helper
+# Moodle Study Helper
 
-Extensión Chrome (Manifest V3) que te ayuda a estudiar en quizzes de Moodle usando la API de **Gemini** o **Groq**. **Solo muestra la respuesta sugerida; nunca completa ni clickea nada automáticamente.**
+> **🇪🇸 Español** | [🇬🇧 English](README.en.md)
+
+Extensión Chrome (Manifest V3) que te ayuda a estudiar en quizzes de Moodle usando la API de **Gemini** o **Groq** (o cualquier proveedor compatible con OpenAI). **Solo muestra la respuesta sugerida; nunca completa ni clickea nada automáticamente.**
 
 ---
 
