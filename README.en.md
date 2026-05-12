@@ -6,13 +6,21 @@ Chrome Extension (Manifest V3) that helps you study Moodle quizzes using the **G
 
 ---
 
-## Installation in Chrome
+## Installation
 
+### Chrome
 1. Open Chrome and go to `chrome://extensions/`.
 2. Enable **"Developer mode"** (toggle in the top right).
 3. Click **"Load unpacked"**.
 4. Select the folder containing these files (`manifest.json`, `content.js`, etc.).
 5. Done. The extension should appear in your extensions bar.
+
+### Microsoft Edge
+1. Open Edge and go to `edge://extensions/`.
+2. Enable **"Developer mode"** (toggle in the bottom left).
+3. Click **"Load unpacked"**.
+4. Select the folder containing these files.
+5. Done. The extension works exactly the same as in Chrome.
 
 > **Tip:** Click the pin icon 📌 next to the extension to keep it fixed in the toolbar for quick access.
 

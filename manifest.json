@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Moodle Study Helper",
   "version": "1.0.0",
-  "description": "Asistente de estudio para quizzes de Moodle usando Gemini API",
+  "description": "Asistente de estudio para quizzes de Moodle usando IA (Gemini, Groq, GPT-4, Claude y más). Compatible con Chrome y Edge.",
   "permissions": [
     "storage",
     "activeTab"

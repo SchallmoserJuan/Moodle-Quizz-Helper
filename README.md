@@ -8,13 +8,21 @@ Extensión Chrome (Manifest V3) que te ayuda a estudiar en quizzes de Moodle usa
 
 ---
 
-## Instalación en Chrome
+## Instalación
 
+### Chrome
 1. Abrí Chrome y andá a `chrome://extensions/`.
 2. Activá el modo **"Developer mode"** (interruptor arriba a la derecha).
 3. Hacé click en **"Load unpacked"** (Cargar descomprimida).
 4. Seleccioná la carpeta donde están estos archivos (`manifest.json`, `content.js`, etc.).
 5. Listo. La extensión debería aparecer en tu barra de extensiones.
+
+### Microsoft Edge
+1. Abrí Edge y andá a `edge://extensions/`.
+2. Activá el modo **"Desarrollador"** (interruptor abajo a la izquierda).
+3. Hacé click en **"Cargar extensión sin empaquetar"**.
+4. Seleccioná la carpeta donde están estos archivos.
+5. Listo. La extensión funciona exactamente igual que en Chrome.
 
 > **Tip:** Si hacés click en el ícono del pin 📌 al lado de la extensión, queda fija en la barra para acceder rápido a las opciones.
 
