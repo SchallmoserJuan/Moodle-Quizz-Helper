@@ -1,5 +1,8 @@
-# Moodle Quizz Helper
 
+
+<img width="1983" height="793" alt="image" src="https://github.com/user-attachments/assets/dbc3d2d8-13b6-44d6-b226-d4de1d869ecd" />
+
+# Moodle Quizz Helper
 Extensión Chrome (Manifest V3) que te ayuda a estudiar en quizzes de Moodle usando la API de **Gemini** o **Groq**. **Solo muestra la respuesta sugerida; nunca completa ni clickea nada automáticamente.**
 
 ---
