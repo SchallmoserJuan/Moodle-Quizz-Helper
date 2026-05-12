@@ -1,4 +1,6 @@
-# Moodle Study Helper
+<img width="1983" height="793" alt="image" src="https://github.com/user-attachments/assets/dbc3d2d8-13b6-44d6-b226-d4de1d869ecd" />
+
+# Moodle Quizz Helper
 
 > **🇪🇸 Español** | [🇬🇧 English](README.en.md)
 
